@@ -16,15 +16,15 @@ def rc(x):
 def get_fastq_paths(wildcards):
     sample_number = wildcards.sample_number
     return ({
-        'r1': f'data/reads/J2HBL-3633-{int(sample_number):03}-00-01_S{int(sample_number) - 176}_L001_R1_001.fastq.gz',
-        'r2': f'data/reads/J2HBL-3633-{int(sample_number):03}-00-01_S{int(sample_number) - 176}_L001_R2_001.fastq.gz'})
+        'r1': f'data/reads/3633-{int(sample_number):03}-00-01_S{int(sample_number) - 272}_L001_R1_001.fastq.gz',
+        'r2': f'data/reads/3633-{int(sample_number):03}-00-01_S{int(sample_number) - 272}_L001_R2_001.fastq.gz'})
 
 
 ###########
 # GLOBALS #
 ###########
 
-sample_table = 'data/OG3633-P3.xlsx'
+sample_table = 'data/OG3633-P4.xlsx'
 database = 'data/its1-58024_dada2.fa'
 
 its_f = 'ATGCGATACTTGGTGTGAAT'
@@ -46,7 +46,7 @@ cutadapt = ('shub://TomHarrop/singularity-containers:cutadapt_2.6'
 sample_data = pandas.read_excel(
     sample_table,
     skiprows=list(range(0, 44)),
-    nrows=96)
+    nrows=125)
 
 all_libs = sorted(set(sample_data.to_dict()['Library ID'].values()))
 # all_libs = all_libs[0:4] # to subset
